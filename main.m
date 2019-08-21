@@ -179,7 +179,7 @@ a0 = a0(:);
 tic
 aparam    = [n,ne,npoly,ncoef,nnode,nstate]';
 sparam    = [alpha beta sigma meanRS meanRB rhoy rhoph rhope rhopa meanph meanpe meanpa]';
-options   = optimoptions('lsqnonlin','Display','iter','MaxFunctionEvaluations',300,'MaxIterations',1000,'FunctionTolerance',1e-6,'UseParallel',true);
+options   = optimoptions('lsqnonlin','Display','iter','MaxFunctionEvaluations',30000,'MaxIterations',1000,'FunctionTolerance',1e-6,'UseParallel',true);
 LB        = [repelem(-Inf,ncoef*2),repelem(-10,ncoef*3)];
 UB        = [repelem(Inf,ncoef*2),repelem(10,ncoef*3)];
 [th,fval] = lsqnonlin('residuals',a0,LB,UB,options,aparam,sparam,fwt,yt,pht,pet,pat,wgridy,wgridpe,wgridph,wgridpa,weight,index,indexth,M); %step 6
